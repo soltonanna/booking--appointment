@@ -34,17 +34,25 @@ function copyHtml() {
     .pipe(dest('dist'));
 }
 
-// Watch for changes in SCSS and JS files
+// Copy images to the dist folder
+function copyImages() {
+  return src('images/**/*')
+    .pipe(dest('dist/assets/img'));
+}
+
+// Watch for changes in SCSS, JS, and HTML files
 function watchTask() {
   watch("src/scss/**/*.scss", compilerSass);
   watch("src/js/**/*.js", jsMin);
-  watch("src/index.html", copyHtml); // Watch for changes in HTML files
+  watch("src/index.html", copyHtml);
+  watch("images/**/*", copyImages);
 }
 
 // Default Gulp task
 exports.default = series(
   compilerSass,
   jsMin,
-  copyHtml, // Include the copyHtml task in the series
+  copyHtml,
+  copyImages,
   watchTask
 );
