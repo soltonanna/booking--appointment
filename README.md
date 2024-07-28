@@ -13,6 +13,10 @@ npm install
 npm gulp
 ```
 
+```sh
+npm start
+```
+
 ## Notes
 HTML, CSS, and JavaScript/jQuery files implementing the UI and functionality.
 
