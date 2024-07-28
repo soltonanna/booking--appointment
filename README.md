@@ -1,5 +1,8 @@
 <img src="images/Appointment.jpg" alt="Booking Appointment" />
 
+## Spent Time on task
+<img src="images/Time.png" alt="time" />
+
 ## Booking Appointment
 Test Task for ERP Swiss company !
 
@@ -10,11 +13,11 @@ npm install
 ```
 
 ```sh
-npm gulp
+npm run gulp
 ```
 
 ```sh
-npm start
+npm run start
 ```
 
 ## Notes
