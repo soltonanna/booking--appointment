@@ -51,7 +51,7 @@
 
                     &.has-sub-menu {
                         &::after {
-                            content: url("../../images/icons/arrow-down.svg");
+                            content: url('../../dist/assets/img/icons/arrow-down.svg');
                             width: 8px;
                             height: 8px;
                         }
@@ -103,6 +103,7 @@
                         &.active {
                             @include displayFlex(column, nowrap, center, space-between, flex-start);
                             gap: 20px;
+                            z-index: 99;
                             background-color: var(--color-black);
                             position: absolute;
                             padding: 20px;
@@ -119,7 +120,7 @@
             
                                 &.has-sub-menu {
                                     &::after {
-                                        content: url("../../images/icons/arrow-down.svg");
+                                        content: url('../../dist/assets/img/icons/arrow-down.svg');
                                         width: 8px;
                                         height: 8px;
                                     }
@@ -319,7 +320,7 @@
                                 @include displayFlex(row, nowrap, flex-start, space-between, center);
                         
                                 &:after {
-                                    content: url('../../images/icons/arrow-right.svg');
+                                    content: url('../../dist/assets/img/icons/arrow-right.svg');
                                     width: 18px;
                                     height: 18px;
                                 } 
@@ -349,12 +350,12 @@
                             & > span {
                                 &:after {
                                     content: '';
-                                    background-image: url('../../images/icons/arrow-down.svg');
+                                    background-image: url('../../dist/assets/img/icons/arrow-down.svg');
                                     background-size: cover;
                                     filter: invert(1);
                                     width: 18px;
                                     height: 18px;
-                                } 
+                                }
                             }
                         }
                     }  
@@ -363,7 +364,9 @@
                 /* Basic styles for the menu */
                 .category-btn {
                     width: 107%;
-
+                    @include respond(phone) {
+                        width: 100%;
+                    }
                     a, span {
                         font-size: var(--big-link-size);
                         color: var(--color-text);
@@ -404,7 +407,7 @@
                                 span {
                                     &:after {
                                         content: '';
-                                        background-image: url('../../images/icons/arrow-down.svg');
+                                        background-image: url('../../dist/assets/img/icons/arrow-down.svg');
                                         background-size: cover;
                                         filter: invert(1);
                                         width: 18px;
@@ -437,7 +440,7 @@
                                     @include displayFlex(row, nowrap, flex-start, space-between, center);
                             
                                     &:after {
-                                        content: url('../../images/icons/arrow-right.svg');
+                                        content: url('../../dist/assets/img/icons/arrow-right.svg');
                                         width: 18px;
                                         height: 18px;
                                         padding-bottom: 20px;

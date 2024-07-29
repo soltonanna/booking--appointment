@@ -5,6 +5,7 @@ const minify = require('gulp-clean-css');
 const terser = require('gulp-terser');
 const rename = require('gulp-rename');
 const concat = require('gulp-concat');
+const replace = require('gulp-replace');
 
 // Compile SCSS files to CSS
 function compilerSass() {
@@ -28,19 +29,23 @@ function jsMin() {
     .pipe(dest('dist/script'));
 }
 
-// Copy HTML files to the dist folder
+// Copy and modify HTML files
 function copyHtml() {
   return src('src/index.html')
+    .pipe(replace('../dist/css/styles.min.css', './css/styles.min.css'))
+    .pipe(replace('../dist/script/main.min.js', './script/main.min.js'))
+    .pipe(replace('../images/', './assets/img/'))
     .pipe(dest('dist'));
 }
 
 // Copy images to the dist folder
 function copyImages() {
+  console.log('Copying images...');
   return src('images/**/*')
     .pipe(dest('dist/assets/img'));
 }
 
-// Watch for changes in SCSS, JS, and HTML files
+// Watch for changes in SCSS, JS, HTML, and image files
 function watchTask() {
   watch("src/scss/**/*.scss", compilerSass);
   watch("src/js/**/*.js", jsMin);
