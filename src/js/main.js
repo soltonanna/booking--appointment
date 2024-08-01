@@ -57,7 +57,13 @@ jQuery(document).ready(function ($) {
             e.stopPropagation();
     
             let $this = $(this);
+
+            if ($this.children('a').length > 0) {
+                return;
+            }
+
             let $existingSubList = $this.children('.sub-category-list');
+            $this.addClass('opened');
     
             if ($existingSubList.length === 0) {
                 let subCategories = $this.data('sub');
@@ -75,12 +81,6 @@ jQuery(document).ready(function ($) {
                     .stop(true, true)
                     .slideToggle(10)
                     .toggleClass('active');
-            }
-    
-            if ($existingSubList.hasClass('active')) {
-                $this.addClass('opened');
-            } else {
-                $this.removeClass('opened');
             }
     
             $this.siblings().each(function () {
